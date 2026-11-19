@@ -1482,6 +1482,7 @@ return (
 </div>
 )}
 </div>
+<div className="py-2"><Credit /></div>
 </div>
 );
 }
@@ -1897,6 +1898,7 @@ page === 'admin' ? 'border-indigo-400/60 bg-indigo-500/10 text-indigo-600 dark:t
 <Icon name="shield" size={15} />{!collapsed && t('admin_panel')}
 </button>
 )}
+{!collapsed && <div className="mb-3 border-t border-slate-100 pt-3 dark:border-white/[0.06]"><Credit /></div>}
 <button className={cx(ICON_BTN, 'w-full', !collapsed && 'justify-start gap-2 px-3 text-sm font-medium')} style={!collapsed ? { display: 'flex' } : undefined}
 onClick={() => updateSettings({ collapsed: !collapsed })}>
 <Icon name="panel" size={18} className={collapsed ? 'rtl:rotate-180' : 'rotate-180 rtl:rotate-0'} />
@@ -2226,6 +2228,14 @@ return (
 </div>
 );
 }
+function Credit() {
+return (
+<div className="text-center text-[11px] leading-relaxed text-slate-400 dark:text-slate-500" dir="ltr">
+Created by <span className="font-semibold text-slate-600 dark:text-slate-300">Mahmoud Saad</span>
+<br /><a href="mailto:mahmoudsaad7900@gmail.com" className="font-medium text-indigo-500 hover:underline dark:text-indigo-400">mahmoudsaad7900@gmail.com</a>
+</div>
+);
+}
 function AuthHero({ t, lang }) {
 const fmtN = (n) => new Intl.NumberFormat(lang === 'ar' ? 'ar-EG' : 'en-US', { style: 'currency', currency: 'EGP', maximumFractionDigits: 0 }).format(n);
 return (
@@ -2385,6 +2395,7 @@ className={cx(BTN, 'mt-5 w-full border border-slate-200 bg-white text-slate-800 
 <span className="min-w-0 flex-1"><span className="block text-sm font-bold">{t('try_demo')}</span><span className="block text-xs text-slate-500 dark:text-slate-400">{t('try_demo_sub')}</span></span>
 <Icon name="chevRight" size={18} className="text-slate-400 transition group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
 </button>
+<div className="mt-8"><Credit /></div>
 </>
 )}
 </div>
