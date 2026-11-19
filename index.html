@@ -110,6 +110,7 @@ downLeft: '<path d="M17 7 7 17"/><path d="M17 17H7V7"/>',
 userPlus: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/>',
 calendar: '<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
 globe: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+message: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
 heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
 gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
 home: '<path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
@@ -223,6 +224,13 @@ st_active: 'Active', st_inactive: 'Inactive', st_pending: 'Unconfirmed', st_susp
 no_users: 'No users match', refresh: 'Refresh', admin_denied: 'That page is for the admin only', users_count: '{n} users', you: 'You',
 admin_load_error: "Couldn't load admin data. Make sure supabase/admin.sql was run in your project.", verifying: 'Verifying admin access…', updated: 'Updated {time}',
 via_google: 'Google', via_email: 'Email',
+feedback_btn: 'Feedback', feedback_title: 'Tell us what you think', feedback_sub: 'What do you like? What annoyed you? What should we add? Mahmoud reads every message.',
+feedback_rating: 'How useful is Masroof for you?', feedback_msg: 'Your message', feedback_ph: 'e.g. I wish I could…', feedback_send: 'Send',
+feedback_thanks: 'Thanks! Your message reached us', feedback_empty: 'Write a message first', feedback_err: "Couldn't send — try again later",
+retention_title: 'Retention & engagement', retention_sub: 'Are people coming back? Counts only, no amounts.',
+wau: 'Active this week', mau: 'Active this month', d7: 'Still active after 7 days', d7_sub: '{a} of {b} sign-ups (7–60 days old)',
+tx_per_user: 'Entries per active user', tx_per_user_sub: '{n} entries in the last 7 days', feedback_inbox: 'Feedback inbox', feedback_count: '{n} messages',
+no_feedback: 'No feedback yet', growth_missing: 'Run supabase/growth.sql to enable retention and feedback.',
 },
 ar: {
 appName: 'مصروف', tagline: 'فلوسك · أصحابك · فواتيرك',
@@ -307,6 +315,13 @@ st_active: 'نشط', st_inactive: 'غير نشط', st_pending: 'غير مؤكد'
 no_users: 'لا يوجد مستخدمون مطابقون', refresh: 'تحديث', admin_denied: 'هذه الصفحة للمسؤول فقط', users_count: '{n} مستخدم', you: 'أنت',
 admin_load_error: 'تعذر تحميل بيانات الإدارة. تأكد من تشغيل ملف supabase/admin.sql في مشروعك.', verifying: 'جارٍ التحقق من صلاحية المسؤول…', updated: 'آخر تحديث {time}',
 via_google: 'Google', via_email: 'بريد',
+feedback_btn: 'رأيك', feedback_title: 'قولنا رأيك', feedback_sub: 'إيه اللي عجبك؟ إيه اللي ضايقك؟ عايز نضيف إيه؟ محمود بيقرا كل رسالة بنفسه.',
+feedback_rating: 'مصروف مفيد لك قد إيه؟', feedback_msg: 'رسالتك', feedback_ph: 'مثلاً: نفسي أقدر…', feedback_send: 'إرسال',
+feedback_thanks: 'شكراً! رسالتك وصلت', feedback_empty: 'اكتب رسالة الأول', feedback_err: 'تعذر الإرسال — حاول تاني بعدين',
+retention_title: 'الاحتفاظ والتفاعل', retention_sub: 'هل الناس بترجع؟ أعداد بس، من غير أي مبالغ.',
+wau: 'نشط الأسبوع ده', mau: 'نشط الشهر ده', d7: 'لسه نشط بعد 7 أيام', d7_sub: '{a} من {b} مسجّل (عمرهم 7–60 يوم)',
+tx_per_user: 'معاملات لكل مستخدم نشط', tx_per_user_sub: '{n} معاملة آخر 7 أيام', feedback_inbox: 'صندوق الآراء', feedback_count: '{n} رسالة',
+no_feedback: 'لسه مفيش آراء', growth_missing: 'شغّل ملف supabase/growth.sql علشان يظهر الاحتفاظ والآراء.',
 },
 };
 const BUILTIN_CATEGORIES = [
@@ -1647,6 +1662,7 @@ const locale = isRTL ? 'ar-EG' : 'en-US';
 const tz = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) { return 'UTC'; } })();
 const [range, setRange] = useState(7);
 const [stats, setStats] = useState(null);
+const [growth, setGrowth] = useState(null);
 const [users, setUsers] = useState([]);
 const [loading, setLoading] = useState(true);
 const [err, setErr] = useState('');
@@ -1660,6 +1676,7 @@ const [s, u] = await Promise.all([sb.rpc('admin_stats', { p_days: 30, p_tz: tz }
 if (s.error) throw s.error;
 if (u.error) throw u.error;
 setStats(s.data); setUsers(u.data || []);
+const g = await sb.rpc('admin_growth'); setGrowth(g.error ? { missing: true } : g.data);
 } catch (e) { console.error('[masroof] admin load failed', e); setErr((e && e.message) || String(e)); }
 finally { setLoading(false); }
 }, [tz]);
@@ -1757,6 +1774,36 @@ return (
 )}
 </div>
 </div>
+{growth && (growth.missing ? (
+<div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.07] px-4 py-3 text-sm text-amber-800 dark:text-amber-200">{t('growth_missing')}</div>
+) : (
+<>
+<div><h2 className="font-bold">{t('retention_title')}</h2><p className="text-xs text-slate-500 dark:text-slate-400">{t('retention_sub')}</p></div>
+<div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
+<StatCard icon="activity" tone="indigo" label={t('wau')} value={num(growth.wau)} sub={t('mau') + ': ' + num(growth.mau)} delay={0} />
+<StatCard icon="repeat" tone="emerald" label={t('d7')} value={growth.d7_cohort ? num(pct(growth.d7_retained, growth.d7_cohort)) + '%' : '—'} sub={t('d7_sub', { a: num(growth.d7_retained), b: num(growth.d7_cohort) })} delay={50} />
+<StatCard icon="receipt" tone="amber" label={t('tx_per_user')} value={new Intl.NumberFormat(locale).format(growth.tx_per_wau || 0)} sub={t('tx_per_user_sub', { n: num(growth.tx_7d) })} delay={100} />
+<StatCard icon="message" tone="rose" label={t('feedback_inbox')} value={num(growth.feedback_total)} sub={t('feedback_count', { n: num(growth.feedback_total) })} delay={150} />
+</div>
+<div className={cx(CARD, 'p-5')}>
+<h2 className="mb-3 flex items-center gap-2 font-bold"><Icon name="message" size={16} />{t('feedback_inbox')}</h2>
+{(growth.feedback || []).length === 0 ? <p className="py-6 text-center text-sm text-slate-400">{t('no_feedback')}</p> : (
+<ul className="max-h-96 divide-y divide-slate-100 overflow-y-auto dark:divide-white/[0.06]">
+{growth.feedback.map((f) => (
+<li key={f.id} className="py-3">
+<div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+<span className="font-semibold text-slate-700 dark:text-slate-200" dir="ltr">{f.email || '—'}</span>
+{f.rating && <span className="text-amber-500">{'★'.repeat(f.rating)}{'☆'.repeat(5 - f.rating)}</span>}
+<span>· {rel(f.created_at)}</span>
+</div>
+<p className="mt-1 whitespace-pre-wrap break-words text-sm" dir="auto">{f.message}</p>
+</li>
+))}
+</ul>
+)}
+</div>
+</>
+))}
 <div className={cx(CARD, 'overflow-hidden')}>
 <div className="space-y-3 border-b border-slate-100 p-4 sm:p-5 dark:border-white/[0.06]">
 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -2124,11 +2171,49 @@ return (
 </div>
 <BottomNav page={page} go={go} onAdd={openAdd} />
 </div>
+{mode !== 'demo' && sb && <FeedbackButton />}
 <TransactionModal open={txModal.open} initial={txModal.initial} onClose={() => setTxModal({ open: false, initial: null })} />
 <ExportModal open={exportOpen} onClose={() => setExportOpen(false)} />
 <ConfirmDialog state={confirmState} onClose={() => setConfirmState(null)} />
 <Toasts toasts={toasts} />
 </AppCtx.Provider>
+);
+}
+function FeedbackButton() {
+const { t, lang, toast } = useApp();
+const [open, setOpen] = useState(false);
+const [msg, setMsg] = useState('');
+const [rating, setRating] = useState(0);
+const [busy, setBusy] = useState(false);
+const send = async (e) => {
+e && e.preventDefault();
+if (!msg.trim()) { toast(t('feedback_empty'), 'error'); return; }
+setBusy(true);
+try {
+const { error } = await sb.rpc('submit_feedback', { p_message: msg.trim().slice(0, 2000), p_rating: rating || null, p_lang: lang === 'ar' ? 'ar' : 'en' });
+if (error) throw error;
+toast(t('feedback_thanks'), 'success'); setOpen(false); setMsg(''); setRating(0);
+} catch (err) { console.error('[masroof] feedback failed', err); toast(t('feedback_err'), 'error'); }
+finally { setBusy(false); }
+};
+return (
+<>
+<button onClick={() => setOpen(true)} className="fixed bottom-24 end-4 z-40 flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:-translate-y-0.5 md:bottom-6 md:end-6 dark:bg-white dark:text-slate-900">
+<Icon name="message" size={16} />{t('feedback_btn')}
+</button>
+<Modal open={open} onClose={() => setOpen(false)} title={t('feedback_title')}
+footer={<><button className={BTN_GHOST} onClick={() => setOpen(false)}>{t('cancel')}</button><button className={BTN_PRIMARY} onClick={send} disabled={busy}>{t('feedback_send')}</button></>}>
+<form onSubmit={send} className="space-y-4">
+<p className="text-sm text-slate-500 dark:text-slate-400">{t('feedback_sub')}</p>
+<div><label className={LABEL}>{t('feedback_rating')}</label>
+<div className="flex gap-1" dir="ltr">{[1, 2, 3, 4, 5].map((n) => (
+<button type="button" key={n} onClick={() => setRating(n)} className={cx('text-2xl leading-none transition', n <= rating ? 'text-amber-400' : 'text-slate-300 dark:text-slate-600')}>★</button>
+))}</div></div>
+<div><label className={LABEL}>{t('feedback_msg')}</label>
+<textarea autoFocus rows={5} maxLength={2000} className={INPUT} dir="auto" placeholder={t('feedback_ph')} value={msg} onChange={(e) => setMsg(e.target.value)} /></div>
+</form>
+</Modal>
+</>
 );
 }
 function DemoBanner() {
